@@ -9,7 +9,7 @@
             -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FelipeRod Testing App</font></font></a>
-              <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="loggedIn">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ |async">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">Check</a>
                 </li>
@@ -19,18 +19,20 @@
                 <li class="nav-item">
                   <a class="nav-link disabled">Messages</a>
                 </li>
+                <!--
                 <li *ngIf="loggedIn" class="nav-item">
                   <a class="nav-link" (click)="logout()">Logout</a>
                 </li>
+                -->
               </ul>
-              <div class="dropdown" *ngIf="loggedIn" dropdown>
+              <div class="dropdown" *ngIf="accountService.currentUser$ |async" dropdown>
                 <a class="dropdown-toggle text-light" dropdownToggle>Welcome :) </a>
                 <div class="dropdown-menu mt-3" *dropdownMenu>
                   <a class="dropdown-item">Edit Profile</a>
                   <a class="dropdown-item" (click)="logout()">Logout</a>
                 </div>
               </div>
-              <form *ngIf="!loggedIn" #loginForm="ngForm" 
+              <form *ngIf="(accountService.currentUser$ |async)===null" #loginForm="ngForm" 
                     class="d-flex" 
                     role="search" 
                     (ngSubmit)="login()" 
