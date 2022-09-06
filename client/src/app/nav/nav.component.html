@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+        <div class="container-fluid">
+            <!--<a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FelipeRod Testing App</font></font></a>-->
+            <!--
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Basculer la navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FelipeRod Testing App</font></font></a>
+              <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="loggedIn">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Check</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Lists</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled">Messages</a>
+                </li>
+                <li *ngIf="loggedIn" class="nav-item">
+                  <a class="nav-link" (click)="logout()">Logout</a>
+                </li>
+              </ul>
+              <div class="dropdown" *ngIf="loggedIn" dropdown>
+                <a class="dropdown-toggle text-light" dropdownToggle>Welcome :) </a>
+                <div class="dropdown-menu mt-3" *dropdownMenu>
+                  <a class="dropdown-item">Edit Profile</a>
+                  <a class="dropdown-item" (click)="logout()">Logout</a>
+                </div>
+              </div>
+              <form *ngIf="!loggedIn" #loginForm="ngForm" 
+                    class="d-flex" 
+                    role="search" 
+                    (ngSubmit)="login()" 
+                    autocomplete="off">
+                <input class="form-control me-2"
+                       name="UserName"
+                       [(ngModel)]="model.userName"
+                       type="text" 
+                       placeholder="User Name" 
+                       aria-label="User Name">
+                <input class="form-control me-2"
+                       name="Password"
+                       [(ngModel)]="model.password"
+                       type="password" 
+                       placeholder="Password" 
+                       aria-label="Password">
+                <button class="btn btn-outline-success" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></button>
+              </form>
+            </div>
+        </div>
+    </div>   
+</nav>
