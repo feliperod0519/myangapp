@@ -12,15 +12,18 @@ export class AppComponent implements OnInit {
   title = 'Testing App!';
   users: any;
 
-  constructor(private http: HttpClient, private accountService: AccountService){
+  //Use get users somewhere else(home component)... only works here for testing
+
+  constructor(/*private http: HttpClient, */private accountService: AccountService){
   
   }
 
   ngOnInit(){
-    this.getUsers();
+    //this.getUsers();
     this.setCurrentUser();
   }
 
+  /* just for testing... moved to home component
   getUsers(){
     this.http.get('https://localhost:5001/api/users').subscribe({
     next: (r)=>{
@@ -31,6 +34,7 @@ export class AppComponent implements OnInit {
                  }
     });
   }
+  */
 
   setCurrentUser(){
     const user:User = JSON.parse(localStorage.getItem('user'));

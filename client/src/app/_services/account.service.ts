@@ -35,4 +35,16 @@ export class AccountService {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
   }
+
+  register(model:any){
+    return this.http.post(this.baseUrl + 'account/register', model).pipe(
+      map((usr: User) =>{
+        if (usr){
+          localStorage.setItem('user',JSON.stringify(usr));
+          this.currentUserSource.next(usr);
+        }
+        return usr;//because otherwise the projection will retun null... not an error but rather bothersome.
+      })
+    );
+  }
 }
