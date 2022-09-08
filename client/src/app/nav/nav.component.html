@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container">
         <div class="container-fluid">
             <!--<a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FelipeRod Testing App</font></font></a>-->
@@ -8,25 +8,29 @@
             </button>
             -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <a class="navbar-brand" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FelipeRod Testing App</font></font></a>
-              <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="accountService.currentUser$ |async">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Check</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Lists</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled">Messages</a>
-                </li>
-                <!--
-                <li *ngIf="loggedIn" class="nav-item">
-                  <a class="nav-link" (click)="logout()">Logout</a>
-                </li>
-                -->
-              </ul>
-              <div class="dropdown" *ngIf="accountService.currentUser$ |async" dropdown>
-                <a class="dropdown-toggle text-light" dropdownToggle>Welcome :) </a>
+              <a class="navbar-brand" routerLink="/" routerLinkActive="active"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FelipeRod Testing App</font></font></a>
+              <ng-container *ngIf="accountService.currentUser$ |async">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0"> <!-- *ngIf="accountService.currentUser$ |async">-->
+                  <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="/members">Check</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/lists">Lists</a>
+                    <!--<a class="nav-link active" href="/lists">Lists</a>-->
+                  </li>
+                  <li class="nav-item">
+                    <!--<a class="nav-link disabled">Messages</a>-->
+                    <a class="nav-link" routerLinkActive="active" routerLink="/messages">Messages</a>
+                  </li>
+                  <!--
+                  <li *ngIf="loggedIn" class="nav-item">
+                    <a class="nav-link" (click)="logout()">Logout</a>
+                  </li>
+                  -->
+                </ul>
+              </ng-container>
+              <div class="dropdown" *ngIf="(accountService.currentUser$ |async) as user" dropdown>
+                <a class="dropdown-toggle text-light" dropdownToggle>Welcome :) {{user.userName | titlecase}}</a>
                 <div class="dropdown-menu mt-3" *dropdownMenu>
                   <a class="dropdown-item">Edit Profile</a>
                   <a class="dropdown-item" (click)="logout()">Logout</a>
@@ -49,7 +53,7 @@
                        type="password" 
                        placeholder="Password" 
                        aria-label="Password">
-                <button class="btn btn-outline-success" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></button>
+                <button class="btn btn-success" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></button>
               </form>
             </div>
         </div>
