@@ -9,8 +9,8 @@
             -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <a class="navbar-brand" routerLink="/" routerLinkActive="active"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FelipeRod Testing App</font></font></a>
-              <ng-container *ngIf="accountService.currentUser$ |async">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0"> <!-- *ngIf="accountService.currentUser$ |async">-->
+              <ul class="navbar-nav me-auto mb-2 mb-md-0"> <!-- *ngIf="accountService.currentUser$ |async">-->
+                <ng-container *ngIf="accountService.currentUser$ |async">
                   <li class="nav-item">
                     <a class="nav-link" routerLinkActive="active" aria-current="page" routerLink="/members">Check</a>
                   </li>
@@ -27,8 +27,11 @@
                     <a class="nav-link" (click)="logout()">Logout</a>
                   </li>
                   -->
-                </ul>
-              </ng-container>
+                </ng-container>
+                <li class="nav-item">
+                  <a class="nav-link" routerLinkActive="active" routerLink="/errors">Error Testing</a>
+                </li>
+              </ul>
               <div class="dropdown" *ngIf="(accountService.currentUser$ |async) as user" dropdown>
                 <a class="dropdown-toggle text-light" dropdownToggle>Welcome :) {{user.userName | titlecase}}</a>
                 <div class="dropdown-menu mt-3" *dropdownMenu>

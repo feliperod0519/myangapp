@@ -33,10 +33,6 @@ export class NavComponent implements OnInit {
                                                                     console.log(r);
                                                                     //this.loggedIn = true;
                                                                     this.router.navigateByUrl('/members');
-                                                                  },
-                                                      error:(e)=>{ 
-                                                                    console.log(e); 
-                                                                    this.toastr.error(e.error);
                                                                   }
                                                     });
   }
