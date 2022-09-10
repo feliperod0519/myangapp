@@ -30,4 +30,28 @@
             </div>
         </div>
     </div>
+    <div class="col-8">
+        <tabset class="member-tabset">
+            <tab heading="About {{mem.knownAs}}">
+                <h4>Description</h4>
+                <p>{{mem.introduction}}</p>
+                <h4>Looking for</h4>
+                <p>{{mem.lookingFor}}</p>
+            </tab>
+            <tab heading="Interests">
+                <h4>Interests</h4>
+                <p>{{mem.interests}}</p>
+            </tab>
+            <tab heading="Photos">
+                <!--<h4>Coming soon!</h4>-->
+                <ngx-gallery [options]="galleryOptions" 
+                             [images]="galleryImages"
+                             style="display: inline-block; margin-bottom:20px;">
+                </ngx-gallery>
+            </tab>
+            <tab heading="Messages">
+                <h4>Coming soon!</h4>
+            </tab>
+        </tabset>
+    </div>
 </div>
