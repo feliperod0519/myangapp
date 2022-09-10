@@ -1,0 +1,39 @@
+{
+    "id": 1,
+    "username": "tina",
+    "photoUrl": "https://randomuser.me/api/portraits/women/95.jpg",
+    "age": 37,
+    "knownAs": "Tina",
+    "created": "2020-03-07T00:00:00",
+    "lastActivity": "0001-01-01T00:00:00",
+    "gender": "female",
+    "introduction": "Labore non nostrud nulla quis ut aliqua sint ex sit sit eiusmod. Ad irure sint ex velit sint est tempor ad adipisicing ipsum adipisicing cillum. Culpa adipisicing occaecat est elit pariatur pariatur aliqua duis labore consequat aliqua aliqua id. Et consequat eu exercitation aute commodo est cupidatat enim quis laborum consectetur. Do duis veniam aliquip elit veniam. Ad Lorem aliquip duis dolore ea exercitation mollit veniam.\r\n",
+    "lookingFor": "Cillum ipsum occaecat duis pariatur aute in proident anim laborum anim enim labore. Do nostrud anim sit velit non ea minim ad ipsum dolore voluptate reprehenderit elit. Anim nostrud est culpa sint incididunt aute. Veniam elit non ea consectetur consequat commodo. Enim commodo dolore laboris labore. Irure magna in deserunt reprehenderit dolor nulla.\r\n",
+    "interests": "Dolor incididunt sunt commodo proident culpa nulla dolore proident.",
+    "city": "Ada",
+    "country": "Bouvet Island",
+    "photo": null
+}
+
+exported to ts
+
+declare module namespace {
+
+    export interface RootObject {
+        id: number;
+        username: string;
+        photoUrl: string;
+        age: number;
+        knownAs: string;
+        created: Date;
+        lastActivity: Date;
+        gender: string;
+        introduction: string;
+        lookingFor: string;
+        interests: string;
+        city: string;
+        country: string;
+        photo?: any;
+    }
+
+}
